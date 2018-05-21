@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="TRACE" packages="com.vimal.test">
+	<Appenders>
+	    <WebSocketAppender name="WebSocketAppender" >
+	   <!--  <HTMLLayout charset="UTF-8" title="log info" locationInfo="true" /> -->
+	      <PatternLayout>
+	   		 <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5level] - %msg%n</Pattern> 
+	      </PatternLayout>
+	    </WebSocketAppender>
+	    
+	    <!-- <JDBC name="MySQLDatabase" tableName="app_logs">
+         <ConnectionFactory
+            class="com.fairdata.pht.log4j2.ConnectionFactory" method="getDatabaseConnection" />
+         <Column name="ENTRY_DATE" isEventTimestamp="true" />
+         <Column name="LOGGER" pattern="%logger" />
+         <Column name="LOG_LEVEL" pattern="%level" />
+         <Column name="MESSAGE" pattern="%m" />
+         <Column name="EXCEPTION" pattern="%throwable " />
+      </JDBC> -->
+  </Appenders>
+  <Loggers>
+     <Root level="TRACE">
+            <AppenderRef ref="WebSocketAppender"/>
+            <AppenderRef ref="MySQLDatabase"/>
+     </Root>
+  </Loggers>
+</Configuration>
